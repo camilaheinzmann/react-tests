@@ -16,17 +16,17 @@ describe("Testing List component", () => {
   });
 
   it("should be able to list three items", () => {
-    const { getByTestId } = render(<List />);
+    render(<List />);
 
-    const input = getByTestId("input-add-item");
-    const form = getByTestId("form-add-item");
+    const input = screen.getByTestId("input-add-item");
+    const form = screen.getByTestId("form-add-item");
 
     fireEvent.change(input, { target: { value: "React Native" } });
     fireEvent.submit(form);
     fireEvent.change(input, { target: { value: "Flutter" } });
     fireEvent.submit(form);
 
-    const techList = getByTestId("ul-items");
+    const techList = screen.getByTestId("ul-items");
     expect(techList.children.length).toBe(3);
   });
 
