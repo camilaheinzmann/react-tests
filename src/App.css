@@ -1,0 +1,15 @@
+.container {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.container h1 {
+  background-color: rgb(13, 5, 87);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: 20px;
+  color: #fff;
+  padding: 20px;
+}
