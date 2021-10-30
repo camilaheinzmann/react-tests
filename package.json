@@ -1,6 +1,7 @@
 {
   "name": "react-tests",
   "version": "0.1.0",
+  "homepage": "http://camilaheinzmann.github.io/react-tests",
   "private": true,
   "dependencies": {
     "@types/node": "^16.10.1",
@@ -26,7 +27,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "coverage": "yarn test --coverage --watchAll=false",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
