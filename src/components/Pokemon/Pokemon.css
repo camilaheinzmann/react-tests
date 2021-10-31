@@ -1,0 +1,40 @@
+.pokemon-container {
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.pokemon-button {
+  height: 40px;
+  padding: 0 20px;
+
+  color: #fff;
+  background-color: #31d2f7;
+}
+
+.pokemon-button:hover {
+  border-color: #69eaff;
+  background-color: #69eaff;
+}
+
+.pokemon-container li {
+  margin-bottom: 15px;
+}
+
+.pokemon-container li a {
+  color: #31d2f7;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.pokemon-container li a:hover {
+  color: #69eaff;
+}
+
+@media (max-width: 767px) {
+  .pokemon-container {
+    width: 100%;
+    max-width: 400px;
+  }
+}

@@ -19,7 +19,9 @@ const List = () => {
   }
 
   return (
-    <div>
+    <div className="list-container">
+      <h1>💦 Lista de Anotações</h1>
+
       <form
         className="list-form"
         data-testid="form-add-item"
@@ -32,7 +34,9 @@ const List = () => {
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />
-        <button type="submit">Adicionar</button>
+        <button type="submit" className="blue-button">
+          Adicionar
+        </button>
       </form>
 
       <ul className="list-of-items" data-testid="ul-items">

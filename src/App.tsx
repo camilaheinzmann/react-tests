@@ -1,10 +1,11 @@
-import List from "./components/List";
 import "./App.css";
+import List from "./components/List";
+import Pokemon from "./components/Pokemon";
 
 function App() {
   return (
     <div className="container">
-      <h1>💦 Interactive list</h1>
+      <Pokemon />
       <List />
     </div>
   );
