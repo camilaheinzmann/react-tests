@@ -2,6 +2,8 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Pokemon from "./Pokemon";
+import { Provider } from "react-redux";
+import store from "../../redux/store";
 
 const abilitiesMock = [
   {
@@ -21,7 +23,11 @@ const abilitiesMock = [
 describe("When the user enter a valid pokemon name", () => {
   it("should show the pokemon abilities", async () => {
     jest.fn().mockResolvedValueOnce({ data: { abilitiesMock } });
-    render(<Pokemon />);
+    render(
+      <Provider store={store}>
+        <Pokemon />
+      </Provider>
+    );
 
     userEvent.type(screen.getByTestId("pokemon-input"), "ditto");
     userEvent.click(screen.getByTestId("pokemon-button"));
@@ -34,7 +40,11 @@ describe("When the user enter a valid pokemon name", () => {
 describe("When the user enter a invalid pokemon name", () => {
   it("should display an error message if an invalid name is entered", async () => {
     jest.fn().mockRejectedValueOnce(new Error());
-    render(<Pokemon />);
+    render(
+      <Provider store={store}>
+        <Pokemon />
+      </Provider>
+    );
 
     userEvent.type(screen.getByTestId("pokemon-input"), "invalid-pokemon-name");
     userEvent.click(screen.getByTestId("pokemon-button"));
@@ -44,7 +54,11 @@ describe("When the user enter a invalid pokemon name", () => {
   });
 
   it("button should be disabled if the pokemon input is blank", () => {
-    render(<Pokemon />);
+    render(
+      <Provider store={store}>
+        <Pokemon />
+      </Provider>
+    );
 
     userEvent.type(screen.getByTestId("pokemon-input"), "  ");
 

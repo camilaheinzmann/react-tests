@@ -1,4 +1,6 @@
 import { ChangeEvent, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setPokeName } from "../../redux/actions";
 import "./Pokemon.css";
 
 const pokeAPIUrl = "https://pokeapi.co/api/v2";
@@ -11,6 +13,7 @@ type Ability = {
 };
 
 const Pokemon = () => {
+  const dispatch = useDispatch();
   const [pokemonName, setPokemonName] = useState("");
   const [pokemonAbilities, setPokemonAbilities] = useState<Ability[]>([]);
   const [error, setError] = useState("");
@@ -23,9 +26,12 @@ const Pokemon = () => {
       const pokeAbilities = await result.json();
       setPokemonAbilities(pokeAbilities.abilities);
       setError("");
+      dispatch(setPokeName(pokemonName));
+      setPokemonName("");
     } catch (error: any) {
       setPokemonAbilities([]);
       setError("Pokemon não encontrado");
+      dispatch(setPokeName("Nenhum pokemon selecionado"));
     }
   };
 
